@@ -1,0 +1,9 @@
+pandas
+numpy
+matplotlib
+seaborn
+logging
+os
+datetime
+zipfile
+json
