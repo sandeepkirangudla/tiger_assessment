@@ -1,9 +1,9 @@
 /.idea/
 /build/
-/Data/
 /dist/
 /Logs/
 /Tiger_Assessment.egg-info/
 /venv/
 /Data/Output/
 /.pypirc.txt
+/Data/
