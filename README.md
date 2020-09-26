@@ -141,8 +141,8 @@ The final step is generate the result and plots. <i>my_func.summary_stats.summar
 
 ## Insights
 #### Collision by Flight Call of Birds
-We can see that birds who employ flight calls have twice as much as collision than the birds who don't employ flight calls.
-![Flight Call_bar_plot](https://github.com/sandeepkirangudla/tiger_assessment/blob/master/Data/Output/Flight%20Call_bar_plot.png)
+We can see that birds that employ flight calls have significantly (almost 35000 times) more collision than the birds that don't employ flight calls.
+![Flight Call_bar_plot](https://github.com/sandeepkirangudla/tiger_assessment/blob/master/Data/Output/flight_call_bar_plot.png)
 
 We can see here that the flight call is a significant factor but we may need futher testing to be sure.
 
@@ -164,10 +164,10 @@ We can see that Albicollis species of birds have the highest collisions followed
 Here we observe that Albicollis is most common species that have collisions. But its is highly possible that Albicollis may be majority in the observed cities. If we an estimate of percentage distribution of species by family we can take a weighted proportion and then check for most common species of birds.
 
 #### Collision by Habitat of Birds
-We can see that birds who usually dwell in Forest are twice as much as birds who live on edge and almost 7 times as much as birds who live in the open.
+We can see that birds that usually dwell in Forest are twice as much as birds that live on edge and almost 7 times as much as birds who live in the open.
 ![Habitat_bar_plot](https://github.com/sandeepkirangudla/tiger_assessment/blob/master/Data/Output/Habitat_bar_plot.png)
 
-Here we can see that birds who are not used to artificial lighting are more susuptible for collisions. This could be a compelling feature.
+Here we can see that birds that are not used to artificial lighting are more susuptible for collisions. This could be a compelling feature.
 
 #### Collision by Locality of Birds
 We can see that there is an equal distribution of birds in both localities.
@@ -177,3 +177,12 @@ We can see that there is an equal distribution of birds in both localities.
 We can see that the lower stratum birds have twice as much as collision than upper stratum birds.![Stratum_bar_plot](https://github.com/sandeepkirangudla/tiger_assessment/blob/master/Data/Output/Stratum_bar_plot.png)
 
 Here we can see that birds who live on lower stratum are more susuptible for collisions. This could be a compelling feature.
+
+# Summary & Findings
+
+#### 1. Passerellidae Family of birds have the highest collisions followed by Parulidae and Turdidae
+#### 2. Melospiza Genus of birds have the highest collisions followed by Zonotrichia and Catharus
+#### 3. Albicollis species of birds have the highest collisions followed by Hyemalis and Melodia
+#### 4. Birds that usually dwell in Forest are twice as much as birds that live on edge and almost 7 times as much as birds who live in the open
+#### 5. The lower stratum birds have twice as much as collision than upper stratum birds
+#### 6. Birds who employ flight calls have twice as much as collision than the birds who don't employ flight calls
