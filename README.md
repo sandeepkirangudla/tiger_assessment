@@ -141,7 +141,7 @@ The final step is generate the result and plots. <i>my_func.summary_stats.summar
 
 ## Insights
 #### Collision by Flight Call of Birds
-We can see that birds who employ flight calls have twice as much as collision than the birds who don't employ flight calls.
+We can see that birds who employ flight calls have significantly (almost 35000 times) more collision than the birds who don't employ flight calls.
 ![Flight Call_bar_plot](https://github.com/sandeepkirangudla/tiger_assessment/blob/master/Data/Output/flight_call_bar_plot.png)
 
 We can see here that the flight call is a significant factor but we may need futher testing to be sure.
