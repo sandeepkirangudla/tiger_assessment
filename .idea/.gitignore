@@ -1,3 +1,11 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+build/
+dist/
+Tiger_Assessment.egg-info/
+venv/
+Logs/
+Data/
+.idea/
+venv/
