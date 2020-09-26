@@ -42,6 +42,8 @@ Below are the libraries used as a part of this project.
  - datetime
  - zipfile
  - json
+ - subprocess
+ - sys
 
 ## Project Files & Folders
 
