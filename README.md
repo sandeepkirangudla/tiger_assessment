@@ -21,7 +21,9 @@ If using the data alone, please cite the  [Dryad data package](https://cran.r-pr
 > 
 # Program Execution
 The goal of the project is to generate a summary table of all given 3 data files. Below is the step by step process of executing this program.
-The user runs *bird_collision.py* file. This opens up a GUI in which the user have to provide
+The user import *Tiger_Assessment* library from pip by running the following command. 
+(<b>pip install Tiger-Assessment </b>). This opens up a GUI in which the user have to provide
+
 
  **1. Input Path and File Name
  2. Output Folder Path**
@@ -72,6 +74,7 @@ Below are the libraries used as a part of this project.
 	<p>This file has all the classes and functions required for the project</p>
 	<li><b>bird_collision.py</b></li>
 	<p>This is the main file of the project. The user runs this file which will take input path and file and generate the summary table in given output path.</p>
+</ul>
 
 ## Data Dictionary
 ### `chicago_collision_data`
