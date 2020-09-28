@@ -26,6 +26,7 @@ The user import *Tiger_Assessment* library from pip by running the following com
 
 
  **1. Input Path and File Name
+ 
  2. Output Folder Path**
 
 ## Data Files
