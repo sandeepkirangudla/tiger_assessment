@@ -1,4 +1,3 @@
-
 # Bird Collision vs Artificial Light
 
 ##### The below project is a part of Tiger Machine Learning Engineer position. 
