@@ -1,3 +1,4 @@
+
 # Bird Collision vs Artificial Light
 
 ##### The below project is a part of Tiger Machine Learning Engineer position. 
@@ -27,11 +28,11 @@ The user import *Tiger_Assessment* library from pip by running the following com
 
  **1. Input Path and File Name
  
- 2. Output Folder Path**
+2. Output Folder Path**
 
 ## Data Files
 
-As a part of this project, there are 3 JSON files ( Collision, Flight_Call, Light_Levels). These 3 files are placed in the landing zone as zip file. The path and file name of the landing zone is given by the user and the output file directory is also given by the user.
+As a part of this project, there are 3 JSON files ( Collision, Flight_Call, Light_Levels). These 3 files are placed in the landing zone. The path of the landing zone is given by the user and the output file directory is also given by the user.
 
 ## Libraries
 Below are the libraries used as a part of this project.
@@ -73,7 +74,7 @@ Below are the libraries used as a part of this project.
 	<p>This is a setup file required by python to package and distribute the code. This file has all the indetail description and specifications.</p>
 	<li><b>my_functions.py</b></li>
 	<p>This file has all the classes and functions required for the project</p>
-	<li><b>bird_collision.py</b></li>
+	<li><b>Tiger_Assessment.py</b></li>
 	<p>This is the main file of the project. The user runs this file which will take input path and file and generate the summary table in given output path.</p>
 </ul>
 
