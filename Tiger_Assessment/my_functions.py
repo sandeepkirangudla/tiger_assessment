@@ -40,12 +40,12 @@ class data_process:
             df[i] = df[i].str.title()
         return df
     
-    def drop_dup(df):
-        """
-        This function takes data frame and drop duplicate records and returns a data frame.
-        """
-        df = df.drop_duplicates()
-        return df
+    # def drop_dup(df):
+    #     """
+    #     This function takes data frame and drop duplicate records and returns a data frame.
+    #     """
+    #     df = df.drop_duplicates()
+    #     return df
     
     def remove_nl_tab(df):
         """
@@ -153,12 +153,13 @@ def clean(collision, flight_call, light_level):
     collision = data_process.capital(collision)
     light_level = data_process.capital(light_level)
     collision['Locality'] = collision['Locality'].str.upper()
-    # The below function drops duplicate rows since they result in erroneous reports
-    flight_call = data_process.drop_dup(flight_call)
-    light_level = data_process.drop_dup(light_level)
-    
     # interpolating the missing values of light data with linear interpolationg
     light_level = light_level.interpolate(method='linear', axis=0)
+
+    # The below function drops duplicate rows since they result in erroneous reports
+    flight_call = flight_call.drop_duplicates()
+    light_level = light_level.drop_duplicates(subset='Date', keep='first')
+
 
     # The since the column can only have 'Yes/No', we can map 'Rare' to 'Yes'
     flight_call['Flight Call'] = np.where(flight_call['Flight Call']=='Rare','Yes',flight_call['Flight Call'])

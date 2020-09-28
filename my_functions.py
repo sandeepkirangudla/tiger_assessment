@@ -12,10 +12,10 @@ class data_process:
     """
     This class has all the data cleaning functions
     """
-    
+
     def __init__(self,df):
         self.df = df
-        
+
     def check_null(df):
         """
         This funtions takes a Data Frame as input and checks if the variables have any null values.
@@ -30,7 +30,7 @@ class data_process:
             na_array.append(df[i].isnull().values.any())
         res = pd.DataFrame(np.reshape(na_array, (-1,2)), columns = ['Column Names', 'Has Nulls'])
         return res
-    
+
     def capital(df):
         """
         This function takes data frame and captializes every word of object columns and returns a data frame.
@@ -39,21 +39,21 @@ class data_process:
         for i in df_obj.columns:
             df[i] = df[i].str.title()
         return df
-    
-    def drop_dup(df):
-        """
-        This function takes data frame and drop duplicate records and returns a data frame.
-        """
-        df = df.drop_duplicates()
-        return df
-    
+
+    # def drop_dup(df):
+    #     """
+    #     This function takes data frame and drop duplicate records and returns a data frame.
+    #     """
+    #     df = df.drop_duplicates()
+    #     return df
+
     def remove_nl_tab(df):
         """
         This function takes data frame and removes new lines and tabs and returns a data frame.
         """
         df = df.replace(regex=['\n', '\t'], value='')
         return df
-    
+
     def trim(df):
         """
         Trims whitespace from begining and end of each value across all non-numeric columns in a dataframe
@@ -75,35 +75,35 @@ class summary_stats:
         col = df.columns
         for i in col:
             print(pd.crosstab(index=df[i], columns='count').sort_values(by='count', ascending=False),'\n')
-    
-    def summarize(df, path): 
+
+    def summarize(df, path):
         """
         This function give final summary table of the dataframe and outputs to a specified path.
         """
-        final_summary = pd.crosstab(index=[df['Stratum'], df['Habitat'], 
-                                           df['Family'], df['Genus'], 
-                                           df['Species']] , 
-    columns=[df['Flight Call'], df['Locality']], margins=True)
+        final_summary = pd.crosstab(index=[df['Stratum'], df['Habitat'],
+                                           df['Family'], df['Genus'],
+                                           df['Species']] ,
+                                    columns=[df['Flight Call'], df['Locality']], margins=True)
         final_summary.to_csv(path+'\summary.csv')
-        
+
     def count_plot(df, path):
         """
         This function give final summary table of the dataframe and outputs to a specified path.
         """
         sns.set(rc={'figure.figsize':(12, 9)})
-        cols = ['Genus', 'Species', 'Locality', 'Family', 'Habitat', 'Stratum']       
+        cols = ['Genus', 'Species', 'Locality', 'Family', 'Habitat', 'Stratum']
         for i in cols:
-            sns_plot = sns.countplot(x=i, data=df, 
-                             order=pd.value_counts(df[i]).iloc[:10].index)
+            sns_plot = sns.countplot(x=i, data=df,
+                                     order=pd.value_counts(df[i]).iloc[:10].index)
             sns_plot.figure.savefig(str(path + '\\' + i +"_bar_plot.png"))
-        
+
         pl1 = df[['Flight Call', 'Date']].groupby(['Flight Call']).count()
         pl1 = pl1.reset_index()
         pl1 = pl1.rename(columns = {'Date':'Count'})
-        sns_plot = sns.countplot(x='Flight Call', data=df, 
-                             order=pd.value_counts(df['Flight Call']).iloc[:10].index)
+        sns_plot = sns.countplot(x='Flight Call', data=df,
+                                 order=pd.value_counts(df['Flight Call']).iloc[:10].index)
         sns_plot.figure.savefig(str(path + '\\' + "flight_call_bar_plot.png"))
-    
+
 
 def clean(collision, flight_call, light_level):
     """
@@ -112,57 +112,58 @@ def clean(collision, flight_call, light_level):
     collision = collision
     flight_call = flight_call
     light_level = light_level
-    
+
     # Maps to the correct column names
-    flight_call_col_map = {'Species': 'Genus', 'Family': 'Species', 'Collisions': 'Family', 'Flight': 'Collisions', 
-                       'Call':'Flight Call', 'Habitat': 'Habitat', 'Stratum':'Stratum'}
+    flight_call_col_map = {'Species': 'Genus', 'Family': 'Species', 'Collisions': 'Family', 'Flight': 'Collisions',
+                           'Call':'Flight Call', 'Habitat': 'Habitat', 'Stratum':'Stratum'}
     flight_call.columns = [flight_call_col_map.get(x,"No_key") for x in flight_call.columns]
-    
+
     # Removes whitespaces from column names
     collision.columns = collision.columns.str.strip()
     light_level.columns = light_level.columns.str.strip()
-    
+
     # Trimming the leading and trailing whitespaces
     collision = data_process.trim(collision)
     flight_call = data_process.trim(flight_call)
     light_level = data_process.trim(light_level)
-    
+
     # standardizing the date column
     collision['Date'] = pd.to_datetime(collision['Date'], format='%m/%d/%Y %H:%M')
-    
+
     # sorting collision by Date for better understanding
     collision = collision.sort_values(by='Date', ascending=True, ignore_index=True)
 
     # dropping rows with missing date in light levels data
     mis_ind = light_level[light_level['Date'] == ''].index
     light_level = light_level.drop(index=mis_ind)
-    
+
     # standardizing the date column
     light_level['Date'] = pd.to_datetime(light_level['Date'], format='%Y-%m-%d')
-    
+
     # sorting light level by Date for better understanding
     light_level = light_level.sort_values(by='Date', ascending=True, ignore_index=True)
-    
+
     # Checking null values
     #data_process.check_null(light_level)
     #data_process.check_null(collision)
     #data_process.check_null(flight_call)
-    
+
     # Converting the categorical and non-numeric data to a Standard form for better data handling
     flight_call = data_process.capital(flight_call)
     collision = data_process.capital(collision)
     light_level = data_process.capital(light_level)
     collision['Locality'] = collision['Locality'].str.upper()
-    # The below function drops duplicate rows since they result in erroneous reports
-    flight_call = data_process.drop_dup(flight_call)
-    light_level = data_process.drop_dup(light_level)
-    
     # interpolating the missing values of light data with linear interpolationg
     light_level = light_level.interpolate(method='linear', axis=0)
 
+    # The below function drops duplicate rows since they result in erroneous reports
+    flight_call = flight_call.drop_duplicates()
+    light_level = light_level.drop_duplicates(subset='Date', keep='first')
+
+
     # The since the column can only have 'Yes/No', we can map 'Rare' to 'Yes'
     flight_call['Flight Call'] = np.where(flight_call['Flight Call']=='Rare','Yes',flight_call['Flight Call'])
-    
+
     return (collision, flight_call, light_level)
 
 def input_path(path):
@@ -198,16 +199,16 @@ def file_merge(collision, flight_call, light_level):
     collision = collision
     flight_call = flight_call
     light_level = light_level
-    
+
     # merging collision and flight_call into a final dataframe
     final = pd.merge(collision, flight_call, on=['Genus', 'Species'], how='right')
-    
+
     # dropping collision as it was already summarized
     final = final.drop('Collisions', axis=1)
 
     # merging collision and final into a light dataframe
     final2 = pd.merge(final, light_level, on='Date', how='left')
-    
+
     return final2
 
 
