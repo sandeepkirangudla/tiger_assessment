@@ -112,7 +112,7 @@ class SummaryStats:
 
 
 def output_path(path):
-    """
+    """`
     This function takes input path and checks if file exist.
     """
     a = True

@@ -12,7 +12,7 @@ setuptools.setup(
     name='Tiger_Assessment',
     license='NA',
     description='Tiger_Assessment is a python package for developed as a part of interview process.',
-    version='v0.0.14',
+    version='v0.0.17',
     long_description=README,
     long_description_content_type='text/markdown',
     url='https://github.com/sandeepkirangudla/tiger_assessment',
