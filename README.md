@@ -14,9 +14,9 @@ For details on the data extraction please refer https://github.com/nytimes/covid
   
 # Program Execution  
 The goal of the project is to generate a daily/weekly updates of nationwide infection counts, organized by county. Below is the step by step process of executing this program.  
-The user imports *HCSC* library from pip by running the following command(<b>pip install HCSC </b>). 
+The user imports *HCSC* library from pip by running the following command(<b>pip install Tiger-Assessment</b>). 
 
-The user runs (<b>import HCSC </b>). This opens up a GUI in which the user have to provide   **Output Folder Path**  
+The user runs (<b>import Tiger_Assessment</b>). This opens up a GUI in which the user have to provide   **Output Folder Path**  
   
 ## Data Files  
   
@@ -33,7 +33,7 @@ Below are the libraries used as a part of this project.
 ## Project Files & Folders  
   
  <ul>  
-   <li><b>HCSC</b></li>  
+   <li><b>Tiger_Assessment</b></li>  
    <p>This folder just has the init.py file required to initiate the package and program</p>  
    <li><b>config.py</b></li>  
    <p>This file initial configuration setting like paths etc.</p>  
@@ -43,9 +43,8 @@ Below are the libraries used as a part of this project.
    <p>This is a setup file required by python to package and distribute the code. This file has all the indetail description and specifications.</p>  
    <li><b>my_functions.py</b></li>  
    <p>This file has all the classes and functions required for the project</p>  
-    
-   <li><b>HCSC.py</b></li>  
-   <p>This is the main file of the project. The user runs this file which will take input path and file and generate the summary table in given output path.</p>  
+    <li><b>Tiger_Assessment.py</b></li>  
+   <p>This is the main file of the project. The user runs this file which will generate the summary file in given output path.</p>  
 </ul>  
   
 ## Data Dictionary  
@@ -79,13 +78,16 @@ The path to the input files are given in *config.py*. These files are read using
   
 Below are the steps used to clean the data file.  
   
- 1. #### Cleaning and Mapping Columns  
-  <p>I have used a column dictionarys to map the column names correctly which helps in standardizing the column names.</p>  
-2. #### Standardizing the Dates  
-   <p>As a best practice, it is always recommended to standardize <i>Dates</i> columns. </p>  
-3. #### Sort by Dates  
+ #### Cleaning and Mapping Columns  
+  <p>I have used a column dictionarys to map the column names correctly which helps in standardizing the column names.</p>
+   
+#### Standardizing the Dates  
+<p>As a best practice, it is always recommended to standardize <i>Dates</i> columns. </p>  
+
+#### Sort by Dates  
    <p>As a best practice, it is always recommended to sort data by <i>Dates</i> columns. </p>  
-4. #### Standarizing FIPS columns.  
+
+#### Standarizing FIPS columns.  
  1. <p>Population: Concatenating State_ID and County_ID to generate FIPS in population data, so that it can be joined with daily covid data.  
    2. Covid: Filling the empty and unknown FIPS IDs with a default value to standardize the column.</p> .  
   
