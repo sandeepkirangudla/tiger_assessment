@@ -14,7 +14,7 @@ For details on the data extraction please refer https://github.com/nytimes/covid
   
 # Program Execution  
 The goal of the project is to generate a daily/weekly updates of nationwide infection counts, organized by county. Below is the step by step process of executing this program.  
-The user imports *HCSC* library from pip by running the following command(<b>pip install Tiger-Assessment</b>). 
+The user imports *Tiger_Assessment* library from pip by running the following command(<b>pip install Tiger-Assessment</b>). 
 
 The user runs (<b>import Tiger_Assessment</b>). This opens up a GUI in which the user have to provide   **Output Folder Path**  
   
