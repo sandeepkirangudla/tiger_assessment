@@ -1,34 +1,25 @@
 #importing required libraries
-import Tiger_Assessment.config as config
-import Tiger_Assessment.my_functions as my_func
-
-from datetime import datetime
-
+import HCSC.config as config
+import HCSC.my_functions as my_func
+import pandas as pd
 
 # Setting input and output path variables
-input_pathname = my_func.input_path('Enter input path_name:')
+# input_pathnames
+covid = config.get('covid_df')
+pop = config.get('pop_df')
 output_pathname = my_func.output_path('Enter output path folder:')
 
-# unzip file
-# logging.info('Unzipping file')
-# my_func.extract_data(input_pathname)
-
 # Read Data Files
-collision = my_func.json_df(input_pathname + "\\" + config.get('collision'))
-flight_call = my_func.json_df(input_pathname + "\\" + config.get('flight_call'))
-light_level = my_func.json_df(input_pathname + "\\" + config.get('light_level'))
-
+covid_df = pd.read_csv(covid)
+pop_df = pd.read_csv(pop, encoding='latin-1',
+                     usecols = ['POPESTIMATE2019', 'STATE', 'COUNTY'])
 
 # Cleaning Data Files
-(collision, flight_call, light_level) = my_func.clean(collision, flight_call, light_level)
+(covid_df, pop_df) = my_func.clean(covid_df, pop_df)
+
 
 # Merging the data files
-final = my_func.file_merge(collision, flight_call, light_level)
+final = my_func.final_merge(covid_df, pop_df)
 
 # Generating summary file
-my_func.summary_stats.summarize(final, output_pathname)
-
-# Generating summary plots
-my_func.summary_stats.count_plot(final, output_pathname)
-
-# End of program
+my_func.SummaryStats.summarize(final, output_pathname)
