@@ -9,19 +9,17 @@ with open('README.md') as f:
 setuptools.setup(
     author="Sandeep Kiran Gudla",
     author_email="gsandeepkiran@gmail.com",
-    name='Tiger_Assessment',
+    name='HCSC',
     license='NA',
-    description='Tiger_Assessment is a python package for developed as a part of interview process.',
-    version='v0.0.10',
+    description='HCSC is a python package for developed as a part of interview process.',
+    version='v0.0.4',
     long_description=README,
     long_description_content_type='text/markdown',
-    url='https://github.com/sandeepkirangudla/tiger_assessment',
+    url='https://github.com/sandeepkirangudla/HCSC',
     packages=setuptools.find_packages(),
     python_requires=">=3.5",
     install_requires=['pandas',
-                      'numpy',
-                      'matplotlib',
-                      'seaborn'],
+                      'numpy'],
     classifiers=[
         # Trove classifiers
         # (https://pypi.python.org/pypi?%3Aaction=list_classifiers)

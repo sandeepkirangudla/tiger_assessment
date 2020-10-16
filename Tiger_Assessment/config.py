@@ -1,8 +1,5 @@
 config = {
-    "collision": "chicago_collision_data.json",
-    "flight_call":"flight_call.json",
-    "light_level": "light_levels.json",
-    "def_input_path": ".\Data\Input",
-	"def_output_path": ".\Data\Output",
-	"log_path": ".\Logs"
+    "covid_df": "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv",
+    "pop_df":"https://www2.census.gov/programs-surveys/popest/datasets/2010-2019/counties/totals/co-est2019-alldata.csv",
+    "log_path": ".\Logs"
 }
