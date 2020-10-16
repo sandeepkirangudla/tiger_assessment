@@ -92,10 +92,10 @@ Below are the steps used to clean the data file.
    2. Covid: Filling the empty and unknown FIPS IDs with a default value (00000) to standardize the column.</p> .  
   
 ## Merging the Data Frames  
-After doing the data preprocessing and clean, we obtain clean files that we can merge. <i>merge.final_merge</i> takes in 2 data frames and output 1 final data frame on which we can do our analysis.  
+After doing the data preprocessing and clean, we obtain clean files that we can merge. <i>my_func.final_merge</i> takes in two data frames and output one final data frame on which we can do our analysis.  
   
 ## Generating Summary File  
-The final step is generate the result and plots. <i>summary_stats.SummaryStats.summarize</i> generates the summary file as a csv because it is very easy to interpret and do custom analysis on csv.  
+The final step is generate the result and plots. <i>my_func.SummaryStats.summarize</i> generates the summary file as a csv because it is very easy to interpret and do custom analysis on csv.  
   
 ## Future Edition  
 ### Interactive Plots  
