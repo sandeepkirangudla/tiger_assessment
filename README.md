@@ -89,13 +89,12 @@ Below are the steps used to clean the data file.
 
 #### Standarizing FIPS columns.  
  1. <p>Population: Concatenating State_ID and County_ID to generate FIPS in population data, so that it can be joined with daily covid data.  
-   2. Covid: Filling the empty and unknown FIPS IDs with a default value to standardize the column.</p> .  
+   2. Covid: Filling the empty and unknown FIPS IDs with a default value (00000) to standardize the column.</p> .  
   
 ## Merging the Data Frames  
-After doing the data preprocessing and clean, we obtain clean files that we ca  
-n merge. <i>merge.final_merge</i> takes in 2 data frames and output 1 final data frame on which we can do our analysis.  
+After doing the data preprocessing and clean, we obtain clean files that we can merge. <i>merge.final_merge</i> takes in 2 data frames and output 1 final data frame on which we can do our analysis.  
   
-## Generating Summary File and Plots  
+## Generating Summary File  
 The final step is generate the result and plots. <i>summary_stats.SummaryStats.summarize</i> generates the summary file as a csv because it is very easy to interpret and do custom analysis on csv.  
   
 ## Future Edition  
